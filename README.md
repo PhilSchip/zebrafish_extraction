@@ -39,8 +39,6 @@ The following datasets are generated:
 
 "Evaluation":             a PDF containing the results of the statistical evaluation (ANOVA, Heatmap, t-SNE, PCA and PC-DFA)
 
-"Chromatograms_Sig":      a PDF containing the extracted ion chromatograms of each feature, significant in the ANOVA test
-
 "Significant_features":   a CSV document, containing the data of each significant feature  
                           (name, pvalue, column, polarity, annotation of isototpes/adducts, pcgroup and absolute loading in the PC-DFA)
   
