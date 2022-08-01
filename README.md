@@ -7,10 +7,10 @@ The code as well as the raw data provided is part of the supplementary material 
 Contains a slightly modified centWaveOpt algorithm from the paper "Automated Optimization of XCMS Parameters for Improved Peak Picking of LC-MS Data using the Coefficient of Variation and Parameter Sweeping for Untargeted Metabolomic", Drug Testing and Analysis, 2018, by Sascha K. Manier et al.
 The original version can be found here: https://github.com/saskema/centWaveOpt
 
-# metaboLib_modified
+# metaboLib
 
-Contains a slightly modified version of the metaboLib repository by Sascha K. Manier.
-The original version can be found here: https://github.com/saskema/metaboLib
+Needed repository containing functions for the analysis of metabolomic data originally  by Sascha K. Manier.
+Can be found here: https://github.com/saskema/metaboLib
 
 # Raw_Data
 
@@ -43,10 +43,13 @@ The following datasets are generated:
                           (name, pvalue, column, polarity, annotation of isototpes/adducts, pcgroup and absolute loading in the PC-DFA)
   
 ### In the subfolder "Target_Evaluation":
-Extracted Ion chromatograms of each detected MoInt or IS, depending on the evaluation
+Extracted Ion chromatograms of each detected MoInt or IS, depending on the evaluation, as well as a Boxplot of the peak areas, including Welch´s two sample t-test results.
   
 ### In the original folder:
 "peaklist_CAMERA": a CSV document, containing the data of each feature  
-(m/z and retention time values, peak count, peak areas and annotation of isotopes/adducts)
+(m/z and retention time values, peak count, peak areas and annotation of isotopes/adducts)  
+"feature_count": a xlsx document, containing the overall feature count per sample
+"Peaknumbers_procedure": a PDF containing a Boxplot and statistical data comparing extractions I, II, III and IV
+"Peaknumbers_homogenization": a PDF containing a Boxplot and statistical data comparing extractions III and IV against III_B and IV_B with added homogenization
   
   
