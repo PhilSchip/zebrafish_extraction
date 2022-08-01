@@ -7,6 +7,8 @@ The code as well as the raw data provided is part of the supplementary material 
 Contains a slightly modified centWaveOpt algorithm from the paper "Automated Optimization of XCMS Parameters for Improved Peak Picking of LC-MS Data using the Coefficient of Variation and Parameter Sweeping for Untargeted Metabolomic", Drug Testing and Analysis, 2018, by Sascha K. Manier et al.
 The original version can be found here: https://github.com/saskema/centWaveOpt
 
+Different from the original version, all parameters are chosen based on their coefficient of variation (CV) and not CV or runtime, depending on parameter.
+
 # metaboLib
 
 Needed repository containing functions for the analysis of metabolomic data originally  by Sascha K. Manier.
@@ -48,8 +50,11 @@ Extracted Ion chromatograms of each detected MoInt or IS, depending on the evalu
 ### In the original folder:
 "peaklist_CAMERA": a CSV document, containing the data of each feature  
 (m/z and retention time values, peak count, peak areas and annotation of isotopes/adducts)  
+
 "feature_count": a xlsx document, containing the overall feature count per sample
+
 "Peaknumbers_procedure": a PDF containing a Boxplot and statistical data comparing extractions I, II, III and IV
+
 "Peaknumbers_homogenization": a PDF containing a Boxplot and statistical data comparing extractions III and IV against III_B and IV_B with added homogenization
   
   
