@@ -29,9 +29,9 @@ order <- c(2,8,10,4,16, 32,33,35,36,3, 12,23,11,34,28, 26,30,22,24,6,
            21,18,14,27,29, 5,15,17,9,20, 1,7,13,19,25,31,37)
 
 ## Marks every sample group with a specific colour, can be adapted freely
-colours_classes <- c("Extraction_I" = "#0040ff", "Extraction_II" = "#ff00ff",
-                     "Extraction_III" = "#ff0000", "Extraction_III_B" = "#ff8000",
-                     "Extraction_IV" = "#ffff00",  "Extraction_IV_B" = "#bfff00", "QC" = "#000000")
+colours_classes <- c("Extraction I" = "#0926B7", "Extraction II" = "#FF217B",
+                     "Extraction III" = "#05992C", "Extraction III_B" = "#7DF212",
+                     "Extraction IV" = "#FF1705",  "Extraction IV_B" = "#FA9106", "QC" = "#000000")
 
 column <- "PhenHex"      ## used for some result annotation (PhenHex and HILIC supported)
 polarity <- "negative"   ## used for some result annotation (positive and negative supported)
