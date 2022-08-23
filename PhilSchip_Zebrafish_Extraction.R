@@ -321,7 +321,7 @@ colnames(Peaknumber_Results) <- "Feature_count"
 Peaknumber_Results$Sample <- rownames(peaknumber)
 write_xlsx(Peaknumber_Results, "Feature_Count.xlsx")
 
-#8: Evaluation of Internal standards or MoInts
+#8: Evaluation of Internal standards or MoInts----
 
 ## Generating of result folder name and reading of inclusion list for targeted evaluation
 if (Target_eval == "MoInt") {
@@ -407,11 +407,18 @@ for(i in 1:Targetlength){
   Target.Boxplot <- as.data.frame(matrix(ncol = 3, nrow = 37, dimnames = list(NULL, c("area", "extraction", "experiment"))))
   PeakTarget.Boxplot <- peaklist.annotated[which(peaklist.annotated$Compound == "Target"),(8 + length(class.levels)):length(peaklist)]
   
-  if(i == 18 && column == "PhenHex" && polarity == "positive"){ ##needed due to Arginine on PH pos being complicated
+  ## added step for multiple detection of the same peak
+  ## manually select the better integrated peak, which was the first one except Arginine/Uridine
+  ## on PhenHex positive/negative
+  if(i == 18 && column == "PhenHex" && polarity == "positive"){
     Target.Boxplot$area <- as.data.frame(t(PeakTarget.Boxplot[2, ]))
   }else{
     Target.Boxplot$area <- as.data.frame(t(PeakTarget.Boxplot[1, ]))
   }
+  if(name.Target == "Uridine" && column == "PhenHex" && polarity == "negative"){
+    Target.Boxplot$area <- as.data.frame(t(PeakTarget.Boxplot[2, ]))
+  }
+           
   colnames(Target.Boxplot[,1]) <- "area"
   Target.Boxplot$extraction <- set$class
   Boxplot_order <- c("Extraction_I", "Extraction_II", "Extraction_III", "Extraction_III_B", "Extraction_IV", "Extraction_IV_B", "QC")
@@ -432,12 +439,16 @@ for(i in 1:Targetlength){
   
   
   ## added step for multiple detection of the same peak
-  ## manually select the better integrated peak, which was the first one except Arginine on PhenHex positive
+  ## manually select the better integrated peak, which was the first one except Arginine/Uridine
+  ## on PhenHex positive/negative
   if(length(is.Target) >0){
       if(name.Target == "Arginine" && column == "PhenHex" && polarity == "positive"){
       Target <- peak.matrix[is.Target[2], ]
     }else{
       Target <- peak.matrix[is.Target[1], ]
+    }
+    if(name.Target == "Uridine" && column == "PhenHex" && polarity == "negative"){
+      Target <- peak.matrix[is.Target[2], ]
     }
     
     
