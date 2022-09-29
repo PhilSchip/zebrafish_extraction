@@ -149,34 +149,12 @@ matrix.sig <- t(matrix.sig)
 ## Perform multivariate statistics on significant features
 if (length(matrix.sig) > 1) {
   
-  ## Plot heatmap with dendrogram
-  heatmap.2(x = t(matrix.sig), scale = "row", distfun = dist, margins = c(7,8),
-            trace = "none", cexRow=0.9, cexCol=0.9)
-  
-  
-  ## PCA and tSNE Parameters
+  ## PCA Parameters
   PCA.center <- TRUE
   PCA.scale <- FALSE
   
-  tSNE.center <- TRUE
-  tSNE.scale <- TRUE
-  tSNE.perplexity <- 4
-  
-  ## Perform t-SNE analysis and plot results
-  tsne <- Rtsne(matrix.sig, dim = 2, perplexity = tSNE.perplexity, epoch = 100,
-                verbose = FALSE, pca_center = tSNE.center, pca_scale = tSNE.scale)
-  print(
-    ggplot(data = as.data.frame(tsne$Y), aes(x = tsne$Y[,1], y = tsne$Y[,2], col = Classes)) +
-      geom_point(size = 3) +
-      scale_color_manual(values = colours_classes) +
-      ggtitle("t-SNE") +
-      xlab("X") +
-      ylab("Y") +
-      theme_bw()
-  )
-  
-  ## Perform PCA and plot results
-  pca <- evalPCA(matrix.sig, plot = TRUE, annotate.scores = TRUE, annotate.loadings = 15,
+  ## Perform PCA  
+  pca <- evalPCA(matrix.sig, plot = FALSE, annotate.scores = TRUE, annotate.loadings = 15,
                  classes = set$class, scale = PCA.scale, center = PCA.center)
   
   ## Perform PC-DFA
